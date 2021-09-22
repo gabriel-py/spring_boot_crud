@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Trabalho LP</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form method="post">
+    	
+    	Nome atual do livro: <span th:text="${livro.getNome_livro()}"></span>
+    	<br>
+    	Novo nome do livro:
+    	<input type="text" name="nome_livro" value="">
+    	<br><br>
+    	
+    	Preço atual do livro: <span th:text="${livro.getPreco_livro()}"></span>
+    	<br>
+    	Novo preço do livro:
+    	<input type="text" name="preco_livro" value="">
+    	<br><br>
+    	
+    	<button type="submit">Atualizar</button>
+    </form>
+  </body>
+</html>

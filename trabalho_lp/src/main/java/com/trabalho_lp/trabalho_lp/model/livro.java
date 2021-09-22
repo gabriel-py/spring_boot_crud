@@ -1,13 +1,15 @@
 package com.trabalho_lp.trabalho_lp.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class livro {
 	
 	@Id
-	private String cod_livro;
+	@GeneratedValue
+	private int cod_livro;
 	private String nome_livro;
 	private float preco_livro;
 	
@@ -19,11 +21,11 @@ public class livro {
 		this.preco_livro = preco_livro;
 	}
 	
-	public String getCod_livro() {
+	public int getCod_livro() {
 		return cod_livro;
 	}
 	
-	public void setCod_livro(String cod_livro) {
+	public void setCod_livro(int cod_livro) {
 		this.cod_livro = cod_livro;
 	}
 	

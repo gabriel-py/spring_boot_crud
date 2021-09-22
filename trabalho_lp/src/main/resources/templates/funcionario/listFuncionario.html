@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Trabalho LP</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+  	<table class="table">
+    	<th>Código do Funcionário</th>
+    	<th>Nome do Funcionário</th>
+    	<th>Data de Nascimento do Funcionário</th>
+    	
+	    <div th:each="funcionario : ${funcionario}">
+	    	<div class="row">
+	    		<tr>
+	    			<td><p><span th:text=${funcionario.id_func}></span></td>
+	    			<td><span th:text=${funcionario.nome_func}></span></td>
+	    			<td><span th:text=${funcionario.dt_nasc_func}></span></td>
+	    		</tr>
+	    	</div>
+	    </div>
+	    
+    </table>
+    
+    <a href="/cadastrarFuncionario" class="btn btn-primary">Cadastrar</a>
+    
+    <br><br>
+    <form method="GET" action="atualizarFuncionario">
+    	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
+    	<input type="text" name="id_func">
+    	<button type="submit">Editar</button>
+    </form>
+    
+    <br><br>
+    <form method="GET" action="deletarFuncionario">
+    	<h2>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h2>
+    	<input type="text" name="id_func">
+    	<button type="submit">Excluir</button>
+    </form>
+    
+    
+  </body>
+</html>

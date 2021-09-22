@@ -3,21 +3,23 @@ package com.trabalho_lp.trabalho_lp.model;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
 public class cliente {
 	
 	@Id
-	private String cod_cliente;
+	@GeneratedValue
+	private int cod_cliente;
 	private String nome_cliente;
 	private Date dt_nasc_cliente;
 	private float renda_media;
 	
-	public String getCod_cliente() {
+	public int getCod_cliente() {
 		return cod_cliente;
 	}
-	public void setCod_cliente(String cod_cliente) {
+	public void setCod_cliente(int cod_cliente) {
 		this.cod_cliente = cod_cliente;
 	}
 	public String getNome_cliente() {

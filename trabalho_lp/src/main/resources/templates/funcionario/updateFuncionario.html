@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Trabalho LP</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form method="post">
+    	
+    	Nome atual: <span th:text="${funcionario.getNome_func()}"></span>
+    	<br>
+    	Novo nome do funcionário:
+    	<input type="text" name="nome_func" value="">
+    	<br><br>
+    	
+    	Data de nascimento atual: <span th:text="${funcionario.getDt_nasc_func()}"></span>
+    	<br>
+    	Nova data de nascimento do funcionário:
+    	<input type="date" name="dt_nasc_func" value="">
+    	<br><br>
+    	
+    	<button type="submit">Atualizar</button>
+    </form>
+  </body>
+</html>
