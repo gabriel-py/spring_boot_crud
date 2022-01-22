@@ -45,7 +45,6 @@ public class ClienteController {
 	
 	@RequestMapping("/atualizarCliente")
 	public ModelAndView atualizar_cliente(@RequestParam("cod_cliente") int cod_cliente) {
-		System.out.println(cod_cliente);
 		Iterable<cliente> clientes = er.findAll();
 		cliente c1 = null;
 		for(cliente c: clientes){
