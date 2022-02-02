@@ -7,16 +7,16 @@
   <body>
     <form method="post">
     	
-    	Nome atual do livro: <span th:text="${livro.getNome_livro()}"></span>
+    	Nome atual do livro: <span th:text="${livro.nome}"></span>
     	<br>
     	Novo nome do livro:
-    	<input type="text" name="nome_livro" value="">
+    	<input type="text" name="nome" value="">
     	<br><br>
     	
-    	Preço atual do livro: <span th:text="${livro.getPreco_livro()}"></span>
+    	Preço atual do livro: <span th:text="${livro.preco}"></span>
     	<br>
     	Novo preço do livro:
-    	<input type="text" name="preco_livro" value="">
+    	<input type="text" name="preco" value="">
     	<br><br>
     	
     	<button type="submit">Atualizar</button>

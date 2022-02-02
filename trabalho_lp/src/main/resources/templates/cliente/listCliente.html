@@ -13,13 +13,13 @@
     	<th>Nome do Cliente</th>
     	<th>Data de Nascimento do Cliente</th>
     	<th>Renda Média do Cliente</th>
-    	<div th:each="cliente : ${cliente}">
+    	<div th:each="cliente : ${clientes}">
 	    	<div class="row">
 	    		<tr>
-	    			<td><span th:text=${cliente.cod_cliente}></span></td>
-		    		<td><span th:text=${cliente.nome_cliente}></span></td>
-		    		<td><span th:text=${cliente.dt_nasc_cliente}></span></td>
-		    		<td><span th:text=${cliente.renda_media}></span></td>
+	    			<td><span th:text="${cliente.codigo}"></span></td>
+		    		<td><span th:text="${cliente.nome}"></span></td>
+		    		<td><span th:text="${cliente.dataNasc}"></span></td>
+		    		<td><span th:text="${cliente.rendaMedia}"></span></td>
 	    		</tr>
 	    	</div>
     	</div>
@@ -30,14 +30,14 @@
     <br><br>
     <form method="GET" action="atualizarCliente">
     	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="cod_cliente">
+    	<input type="text" name="codigo">
     	<button type="submit">Editar</button>
     </form>
     
     <br><br>
     <form method="GET" action="deletarCliente">
     	<h2>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="cod_cliente">
+    	<input type="text" name="codigo">
     	<button type="submit">Excluir</button>
     </form>
     

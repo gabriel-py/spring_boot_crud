@@ -7,9 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.trabalho_lp.trabalho_lp.model.cliente;
-import com.trabalho_lp.trabalho_lp.model.funcionario;
-import com.trabalho_lp.trabalho_lp.repository.ClienteRepository;
+import com.trabalho_lp.trabalho_lp.model.Funcionario;
 import com.trabalho_lp.trabalho_lp.repository.FuncionarioRepository;
 
 @Controller
@@ -24,7 +22,7 @@ public class FuncionarioController {
 	}
 	
 	@RequestMapping(value="/cadastrarFuncionario", method=RequestMethod.POST)
-	public String list_funcionario(funcionario f) {
+	public String list_funcionario(Funcionario f) {
 		er.save(f);
 		return "redirect:/listarFuncionario";
 	}
@@ -33,39 +31,39 @@ public class FuncionarioController {
 	public ModelAndView list_cliente() {
 		
 		ModelAndView mv = new ModelAndView("funcionario/listFuncionario");
-		Iterable<funcionario> f1 = er.findAll();
-		mv.addObject("funcionario", f1);
+		Iterable<Funcionario> f1 = er.findAll();
+		mv.addObject("funcionarios", f1);
 		return mv;
 	}
 	
 	@RequestMapping("/atualizarFuncionario")
-	public ModelAndView atualizar_cliente(@RequestParam("id_func") int id_func) {
+	public ModelAndView atualizar_cliente(@RequestParam("id") long id_func) {
 		System.out.println(id_func);
-		Iterable<funcionario> funcs = er.findAll();
-		funcionario f1 = null;
-		for(funcionario f: funcs){
-			if(f.getId_func()==id_func) {
+		Iterable<Funcionario> funcs = er.findAll();
+		Funcionario f1 = null;
+		for(Funcionario f: funcs){
+			if(f.getId()==id_func) {
 				f1 = f;
 				er.delete(f);
 				break;
 			}
 		}
 		ModelAndView mv = new ModelAndView("funcionario/updateFuncionario");
-		mv.addObject("funcionario", f1);
+		mv.addObject("funcionarios", f1);
 		return mv;
 	}
 	
 	@RequestMapping(value="/atualizarFuncionario", method=RequestMethod.POST)
-	public String salva_atualizacao(funcionario l) {
+	public String salva_atualizacao(Funcionario l) {
 		er.save(l);
 		return "redirect:/listarFuncionario";
 	}
 	
 	@RequestMapping("/deletarFuncionario")
-	public String deleta_cliente(@RequestParam("id_func") int id_func) {
-		Iterable<funcionario> funcs = er.findAll();
-		for(funcionario f: funcs){
-			if(f.getId_func()==id_func) {
+	public String deleta_cliente(@RequestParam("id") int id_func) {
+		Iterable<Funcionario> funcs = er.findAll();
+		for(Funcionario f: funcs){
+			if(f.getId()==id_func) {
 				er.delete(f);
 				break;
 			}

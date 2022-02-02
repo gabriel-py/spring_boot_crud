@@ -11,12 +11,12 @@
     	<th>Nome do Funcionário</th>
     	<th>Data de Nascimento do Funcionário</th>
     	
-	    <div th:each="funcionario : ${funcionario}">
+	    <div th:each="funcionario : ${funcionarios}">
 	    	<div class="row">
 	    		<tr>
-	    			<td><p><span th:text=${funcionario.id_func}></span></td>
-	    			<td><span th:text=${funcionario.nome_func}></span></td>
-	    			<td><span th:text=${funcionario.dt_nasc_func}></span></td>
+	    			<td><p><span th:text="${funcionario.id}"></span></td>
+	    			<td><span th:text="${funcionario.nome}"></span></td>
+	    			<td><span th:text="${funcionario.dataNasc}"></span></td>
 	    		</tr>
 	    	</div>
 	    </div>
@@ -28,14 +28,14 @@
     <br><br>
     <form method="GET" action="atualizarFuncionario">
     	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="id_func">
+    	<input type="text" name="id">
     	<button type="submit">Editar</button>
     </form>
     
     <br><br>
     <form method="GET" action="deletarFuncionario">
     	<h2>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="id_func">
+    	<input type="text" name="id">
     	<button type="submit">Excluir</button>
     </form>
     

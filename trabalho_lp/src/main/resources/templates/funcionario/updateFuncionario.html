@@ -7,16 +7,16 @@
   <body>
     <form method="post">
     	
-    	Nome atual: <span th:text="${funcionario.getNome_func()}"></span>
+    	Nome atual: <span th:text="${funcionario.nome}"></span>
     	<br>
     	Novo nome do funcionário:
-    	<input type="text" name="nome_func" value="">
+    	<input type="text" name="nome" value="">
     	<br><br>
     	
-    	Data de nascimento atual: <span th:text="${funcionario.getDt_nasc_func()}"></span>
+    	Data de nascimento atual: <span th:text="${funcionario.dataNasc}"></span>
     	<br>
     	Nova data de nascimento do funcionário:
-    	<input type="date" name="dt_nasc_func" value="">
+    	<input type="date" name="dataNasc" value="">
     	<br><br>
     	
     	<button type="submit">Atualizar</button>

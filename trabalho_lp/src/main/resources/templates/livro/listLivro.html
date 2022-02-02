@@ -14,9 +14,9 @@
 	    <div th:each="livro : ${livro}">
 	    	<div class="row">
 	    		<tr>
-	    			<td><p><span th:text=${livro.cod_livro}></span></td>
-	    			<td><span th:text=${livro.nome_livro}></span></td>
-	    			<td><span th:text=${livro.preco_livro}></span></td>
+	    			<td><p><span th:text="${livro.codigo}"></span></td>
+	    			<td><span th:text="${livro.nome}"></span></td>
+	    			<td><span th:text="${livro.preco}"></span></td>
 	    		</tr>
 	    	</div>
 	    </div>
@@ -28,14 +28,14 @@
     <br><br>
     <form method="GET" action="atualizarLivro">
     	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="cod_livro">
+    	<input type="text" name="codigo">
     	<button type="submit">Editar</button>
     </form>
     
     <br><br>
     <form method="GET" action="deletarLivro">
     	<h2>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="cod_livro">
+    	<input type="text" name="codigo">
     	<button type="submit">Excluir</button>
     </form>
     

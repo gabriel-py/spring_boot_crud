@@ -7,22 +7,22 @@
   <body>
     <form method="post">
     	
-    	Nome atual: <span th:text="${cliente.getNome_cliente()}"></span>
+    	Nome atual: <span th:text="${cliente.nome}"></span>
     	<br>
     	Novo nome do cliente:
-    	<input type="text" name="nome_cliente" value="">
+    	<input type="text" name="nome" value="">
     	<br><br>
     	
-    	Data de nascimento atual: <span th:text="${cliente.getDt_nasc_cliente()}"></span>
+    	Data de nascimento atual: <span th:text="${cliente.dataNasc}"></span>
     	<br>
     	Nova data de nascimento do cliente:
-    	<input type="date" name="dt_nasc_cliente" value="">
+    	<input type="date" name="dataNasc" value="">
     	<br><br>
     	
-    	Renda média atual: <span th:text="${cliente.getRenda_media()}"></span>
+    	Renda média atual: <span th:text="${cliente.rendaMedia}"></span>
     	<br>
     	Nova renda média do cliente:
-    	<input type="text" name="renda_media" value="">
+    	<input type="text" name="rendaMedia" value="">
     	<br><br>
     	
     	<button type="submit">Atualizar</button>

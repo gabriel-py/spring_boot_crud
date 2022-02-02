@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.trabalho_lp.trabalho_lp.model.funcionario;
-import com.trabalho_lp.trabalho_lp.model.livro;
+import com.trabalho_lp.trabalho_lp.model.Livro;
 import com.trabalho_lp.trabalho_lp.repository.LivroRepository;
 
 @Controller
@@ -23,7 +22,7 @@ public class LivroController {
 	}
 	
 	@RequestMapping(value="/cadastrarLivro", method=RequestMethod.POST)
-	public String cad_livro(livro l){
+	public String cad_livro(Livro l){
 		er.save(l);
 		return "redirect:/listarLivro";
 	}
@@ -31,18 +30,18 @@ public class LivroController {
 	@RequestMapping("/listarLivro")
 	public ModelAndView list_livro() {
 		ModelAndView mv = new ModelAndView("livro/listLivro");
-		Iterable<livro> f1 = er.findAll();
+		Iterable<Livro> f1 = er.findAll();
 		mv.addObject("livro", f1);
 		return mv;
 	}
 	
 	@RequestMapping("/atualizarLivro")
-	public ModelAndView atualizar_cliente(@RequestParam("cod_livro") int cod_livro) {
-		System.out.println(cod_livro);
-		Iterable<livro> livros = er.findAll();
-		livro l1 = null;
-		for(livro l: livros){
-			if(l.getCod_livro()==cod_livro) {
+	public ModelAndView atualizar_cliente(@RequestParam("codigo") int codigo) {
+		System.out.println(codigo);
+		Iterable<Livro> livros = er.findAll();
+		Livro l1 = null;
+		for(Livro l: livros){
+			if(l.getCodigo()== codigo) {
 				l1 = l;
 				er.delete(l);
 				break;
@@ -54,16 +53,16 @@ public class LivroController {
 	}
 	
 	@RequestMapping(value="/atualizarLivro", method=RequestMethod.POST)
-	public String salva_atualizacao(livro l) {
+	public String salva_atualizacao(Livro l) {
 		er.save(l);
 		return "redirect:/listarLivro";
 	}
 	
 	@RequestMapping("/deletarLivro")
-	public String deleta_cliente(@RequestParam("cod_livro") int cod_livro) {
-		Iterable<livro> livros = er.findAll();
-		for(livro l: livros){
-			if(l.getCod_livro()==cod_livro) {
+	public String deleta_cliente(@RequestParam("codigo") int codigo) {
+		Iterable<Livro> livros = er.findAll();
+		for(Livro l: livros){
+			if(l.getCodigo()== codigo) {
 				er.delete(l);
 				break;
 			}
