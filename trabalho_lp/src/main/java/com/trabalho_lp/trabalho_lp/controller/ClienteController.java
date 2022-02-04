@@ -14,58 +14,46 @@ import com.trabalho_lp.trabalho_lp.repository.ClienteRepository;
 public class ClienteController {
 	
 	@Autowired
-	private ClienteRepository er;
-	
+	private ClienteRepository cr;
+
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.GET)
-	public String cad_cliente() {
+	public String cadCliente() {
 		return "cliente/formCliente";
 	}
 	
 	@RequestMapping(value="/cadastrarCliente", method=RequestMethod.POST)
-	public String cad_livro(Cliente l) {
-		er.save(l);
+	public String cadCliente(Cliente l) {
+		cr.save(l);
 		return "redirect:/listarCliente";
 	}
 	
 	@RequestMapping("/listarCliente")
-	public ModelAndView list_cliente() {
+	public ModelAndView listCliente() {
 		ModelAndView mv = new ModelAndView("cliente/listCliente");
-		Iterable<Cliente> cl = er.findAll();
+		Iterable<Cliente> cl = cr.findAll();
 		mv.addObject("clientes", cl);
 		return mv;
 	}
 	
 	@RequestMapping("/atualizarCliente")
-	public ModelAndView atualizar_cliente(@RequestParam("codigo") long cod_cliente) {
-		Iterable<Cliente> clientes = er.findAll();
-		Cliente c1 = null;
-		for(Cliente c: clientes){
-			if(c.getCodigo()==cod_cliente) {
-				c1 = c;
-				er.delete(c);
-				break;
-			}
-		}
+	public ModelAndView atualizarCliente(@RequestParam("codigo") long codigo) {
+		Cliente cliente = cr.findByCodigo(codigo);
+		cr.delete(cliente);
 		ModelAndView mv = new ModelAndView("cliente/updateCliente");
-		mv.addObject("cliente", c1);
+		mv.addObject("cliente", cliente);
 		return mv;
 	}
 	
 	@RequestMapping(value="/atualizarCliente", method=RequestMethod.POST)
-	public String salva_atualizacao(Cliente l) {
-		er.save(l);
+	public String salvaAtualizacao(Cliente l) {
+		cr.save(l);
 		return "redirect:/listarCliente";
 	}
 	
 	@RequestMapping("/deletarCliente")
-	public String deleta_cliente(@RequestParam("codigo") long codigo) {
-		Iterable<Cliente> clientes = er.findAll();
-		for(Cliente c: clientes){
-			if(c.getCodigo()== codigo) {
-				er.delete(c);
-				break;
-			}
-		}
+	public String deletaCliente(@RequestParam("codigo") long codigo) {
+		Cliente clientes = cr.findByCodigo(codigo);
+		cr.delete(clientes);
 		return "redirect:/listarCliente";
 	}
 }
