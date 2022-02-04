@@ -7,27 +7,22 @@
     <title>Trabalho LP</title>
   </head>
   <body>
-    <form method="post">
-    	
-    	Nome atual: <span th:text="${cliente.nome}"></span>
-    	<br>
-    	Novo nome do cliente:
-    	<input type="text" name="nome" value="">
-    	<br><br>
-    	
-    	Data de nascimento atual: <span th:text="${cliente.dataNasc}"></span>
-    	<br>
-    	Nova data de nascimento do cliente:
-    	<input type="date" name="dataNasc" value="">
-    	<br><br>
-    	
-    	Renda média atual: <span th:text="${cliente.rendaMedia}"></span>
-    	<br>
-    	Nova renda média do cliente:
-    	<input type="text" name="rendaMedia" value="">
-    	<br><br>
-    	
-    	<button type="submit" class="waves-effect waves-light btn">Atualizar</button>
+    <form method="post" class="container">
+
+		<div class="row">
+    		Novo nome do cliente:
+	    	<input type="text" name="nome" th:value="${cliente.nome}">
+		</div>
+    	<div class="row">
+			<div class="col input-field s6">
+    			<input type="text" name="dataNasc" th:value="${cliente.dataNasc}">
+			</div>
+			<div class="col input-field s6">
+    			<input type="text" name="rendaMedia" th:value="${cliente.rendaMedia}">
+			</div>
+		</div>
+
+		<button type="submit" class="waves-effect waves-light btn">Atualizar</button>
     </form>
 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>

@@ -9,19 +9,14 @@
   <body>
     <form method="post" class="container">
 
-		<div class="row">>
+		<div class="row">
 			<div class="input-field col s9">
-		    	Nome atual:
-    			<span th:text="${funcionario.nome}"></span>
-    			<br>
     			Novo nome do funcionário:
-    			<input type="text" name="nome" value="">
+    			<input type="text" name="nome" th:value="${funcionario.nome}">
 			</div>
 			<div class="input-field col s3">
-	    		Data de nascimento atual: <span th:text="${funcionario.dataNasc}"></span>
-    			<br>
     			Nova data de nascimento do funcionário:
-    			<input type="date" name="dataNasc" value="">
+    			<input type="text" name="dataNasc" th:value="${funcionario.dataNasc}">
 			</div>
 		</div>
     	<button type="submit" class="waves-effect waves-light btn">Atualizar</button>

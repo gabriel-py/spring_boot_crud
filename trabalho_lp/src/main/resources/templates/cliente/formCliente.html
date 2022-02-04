@@ -7,19 +7,22 @@
     <title>Trabalho LP</title>
   </head>
   <body>
-    <form method="post">
-    	
-    	Nome do cliente:
-    	<input type="text" name="nome">
-    	<br><br>
-    	
-    	Data de nascimento do cliente:
-    	<input type="text" name="dataNasc">
-    	<br><br>
-    	
-    	Renda média do cliente:
-    	<input type="text" name="rendaMedia">
-    	<br><br>
+    <form method="post" class="container">
+
+		<div class="row">
+	    	Nome do cliente:
+    		<input type="text" name="nome">
+		</div>
+		<div class="row">
+			<div class="col input-field s6">
+		    	Data de nascimento do cliente:
+    			<input type="text" name="dataNasc">
+			</div>
+			<div class="col input-field s6">
+		    	Renda média do cliente:
+    			<input type="text" name="rendaMedia">
+			</div>
+		</div>
     	
     	<button type="submit" class="waves-effect waves-light btn">Salvar</button>
     </form>

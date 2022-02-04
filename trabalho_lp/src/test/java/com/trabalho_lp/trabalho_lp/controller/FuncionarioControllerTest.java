@@ -25,7 +25,9 @@ class FuncionarioControllerTest {
 
     @Test
     void CadFuncionarioPost() throws Exception{
-        this.mockMvc.perform(post("/cadastrarFuncionario"))
+        this.mockMvc.perform(post("/cadastrarFuncionario")
+                        .param("nome", "teste")
+                        .param("dataNasc", "30/02/2000"))
                 .andExpect(status().is3xxRedirection());
     }
 

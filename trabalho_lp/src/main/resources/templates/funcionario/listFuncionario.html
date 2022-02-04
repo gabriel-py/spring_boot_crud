@@ -7,6 +7,7 @@
     <title>Trabalho LP</title>
   </head>
   <body>
+  <h3><a href="/" class="btn btn-primary">Home</a></h3>
   <h3><a href="/cadastrarFuncionario" class="btn btn-primary">Cadastrar</a></h3>
   <table class="container">
     	<th>Código do Funcionário</th>
@@ -28,19 +29,37 @@
 
     <br><br>
     <form method="GET" action="atualizarFuncionario" class="container">
-    	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="id">
-    	<button type="submit" class="waves-effect waves-light btn">Editar</button>
-    </form>
-    
-    <br><br>
-    <form method="GET" action="deletarFuncionario" class="container">
-    	<h2>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h2>
-    	<input type="text" name="id">
-    	<button type="submit" class="waves-effect waves-light btn">Excluir</button>
-    </form>
+		<div class="row">
+			<h6>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h6>
+		</div>
+		<div class="row">
+			<div class="col input-field s6">
+				<br>
+				<input type="text" name="id">
+			</div>
+			<div class="col input-field s2">
+				<button type="submit" class="waves-effect waves-light btn">Editar</button>
+			</div>
+		</div>
+	</form>
+
+  <br><br>
+  <form method="GET" action="deletarFuncionario" class="container">
+	  <div class="row">
+		  <h6>Caso deseje excluir algum registro, digite o código do mesmo abaixo: </h6>
+	  </div>
+	  <div class="row">
+		  <div class="col input-field s6">
+			  <br>
+			  <input type="text" name="id">
+		  </div>
+		  <div class="col input-field s2">
+			  <button type="submit" class="waves-effect waves-light btn">Excluir</button>
+		  </div>
+	  </div>
+  </form>
 
 
-	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+  <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>
