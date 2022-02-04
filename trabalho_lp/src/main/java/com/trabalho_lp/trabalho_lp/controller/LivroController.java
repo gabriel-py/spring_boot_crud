@@ -17,18 +17,18 @@ public class LivroController {
 	private LivroRepository er;
 	
 	@RequestMapping(value="/cadastrarLivro", method=RequestMethod.GET)
-	public String cad_livro() {
+	public String cadLivro() {
 		return "livro/formLivro";
 	}
 	
 	@RequestMapping(value="/cadastrarLivro", method=RequestMethod.POST)
-	public String cad_livro(Livro l){
+	public String cadLivroPost(Livro l){
 		er.save(l);
 		return "redirect:/listarLivro";
 	}
 	
 	@RequestMapping("/listarLivro")
-	public ModelAndView list_livro() {
+	public ModelAndView listLivro() {
 		ModelAndView mv = new ModelAndView("livro/listLivro");
 		Iterable<Livro> f1 = er.findAll();
 		mv.addObject("livro", f1);
@@ -36,7 +36,7 @@ public class LivroController {
 	}
 	
 	@RequestMapping("/atualizarLivro")
-	public ModelAndView atualizar_cliente(@RequestParam("codigo") int codigo) {
+	public ModelAndView atualizarLivro(@RequestParam("codigo") int codigo) {
 		System.out.println(codigo);
 		Iterable<Livro> livros = er.findAll();
 		Livro l1 = null;
@@ -53,13 +53,13 @@ public class LivroController {
 	}
 	
 	@RequestMapping(value="/atualizarLivro", method=RequestMethod.POST)
-	public String salva_atualizacao(Livro l) {
+	public String salvaAtualizacao(Livro l) {
 		er.save(l);
 		return "redirect:/listarLivro";
 	}
 	
 	@RequestMapping("/deletarLivro")
-	public String deleta_cliente(@RequestParam("codigo") int codigo) {
+	public String deletaCliente(@RequestParam("codigo") int codigo) {
 		Iterable<Livro> livros = er.findAll();
 		for(Livro l: livros){
 			if(l.getCodigo()== codigo) {

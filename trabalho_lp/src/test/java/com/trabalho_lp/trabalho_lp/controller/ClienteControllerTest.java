@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -45,7 +44,7 @@ class ClienteControllerTest {
     void atualizarCliente() throws Exception{
         this.mockMvc.perform(get("/atualizarCliente")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .param("codigo", ""))
+                        .param("codigo", "9"))
                 .andExpect(status().is2xxSuccessful());
     }
 
@@ -57,7 +56,8 @@ class ClienteControllerTest {
 
     @Test
     void deletaCliente() throws Exception {
-        this.mockMvc.perform(get("/listarCliente"))
-                .andExpect(status().is2xxSuccessful());
+        this.mockMvc.perform(get("/deletarCliente")
+                        .param("codigo", "8"))
+                .andExpect(status().is3xxRedirection());
     }
 }

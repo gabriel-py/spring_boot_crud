@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Trabalho LP</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  	<table class="table">
+  <h3></he><a href="/cadastrarLivro" class="btn btn-primary">Cadastrar</a></h3>
+  <table class="container">
     	<th>Código do Livro</th>
     	<th>Nome do Livro</th>
     	<th>Preço do Livro</th>
@@ -23,8 +25,7 @@
 	    
     </table>
     
-    <a href="/cadastrarLivro" class="btn btn-primary">Cadastrar</a>
-    
+
     <br><br>
     <form method="GET" action="atualizarLivro">
     	<h2>Caso deseje editar algum registro, digite o código do mesmo abaixo: </h2>
@@ -38,7 +39,8 @@
     	<input type="text" name="codigo">
     	<button type="submit">Excluir</button>
     </form>
-    
-    
+
+
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>

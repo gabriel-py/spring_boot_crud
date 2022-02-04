@@ -11,48 +11,50 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-class FuncionarioControllerTest {
+class LivroControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    void cadFuncionario() throws Exception {
-        this.mockMvc.perform(get("/cadastrarFuncionario"))
+    void cadLivro() throws Exception {
+        this.mockMvc.perform(get("/cadastrarLivro"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("funcionario/formFuncionario"));
+                .andExpect(view().name("livro/formLivro"));
     }
 
     @Test
-    void CadFuncionarioPost() throws Exception{
-        this.mockMvc.perform(post("/cadastrarFuncionario"))
+    void cadLivroPost() throws Exception {
+        this.mockMvc.perform(post("/cadastrarLivro")
+                        .param("nome", "livro dos testes")
+                        .param("preco", "20"))
                 .andExpect(status().is3xxRedirection());
     }
 
     @Test
-    void listFuncionario() throws Exception{
-        this.mockMvc.perform(get("/listarFuncionario"))
+    void listLivro() throws Exception {
+        this.mockMvc.perform(get("/listarLivro"))
                 .andExpect(status().isOk())
-                .andExpect(model().attributeExists("funcionarios"));
+                .andExpect(model().attributeExists("livro"));
     }
 
     @Test
-    void atualizarFuncionario() throws Exception{
-        this.mockMvc.perform(get("/atualizarFuncionario")
-                        .param("id", "13"))
-                .andExpect(model().attributeExists("funcionario"))
+    void atualizarLivro() throws Exception {
+        this.mockMvc.perform(get("/atualizarLivro")
+                        .param("codigo", "13"))
+                .andExpect(model().attributeExists("livro"))
                 .andExpect(status().is2xxSuccessful());
     }
 
     @Test
     void salvaAtualizacao() throws Exception {
-        this.mockMvc.perform(post("/atualizarFuncionario"))
+        this.mockMvc.perform(post("/atualizarLivro"))
                 .andExpect(status().is3xxRedirection());
     }
 
     @Test
-    void deletaFuncionario() throws Exception {
-        this.mockMvc.perform(get("/deletarFuncionario")
+    void deletaCliente() throws Exception {
+        this.mockMvc.perform(get("/deletarLivro")
                         .param("id", "14"))
                 .andExpect(status().is3xxRedirection());
     }

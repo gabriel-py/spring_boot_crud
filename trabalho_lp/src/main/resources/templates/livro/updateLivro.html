@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
+	  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+	  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+	  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Trabalho LP</title>
-    <meta charset="utf-8">
   </head>
   <body>
-    <form method="post">
+    <form method="post" class="container">
+    	<div class="row">
+			<div class="input-field col s6">
+		    	Nome atual do livro: <span th:text="${livro.nome}"></span>
+    			<br>
+    			Novo nome do livro:
+    			<input type="text" name="nome" value="">
+			</div>
+
+			<div class="input-field col s6">
+	    		Preço atual do livro: <span th:text="${livro.preco}"></span>
+				<br>
+    			Novo preço do livro:
+    			<input type="text" name="preco" value="">
+			</div>
+		</div>
     	
-    	Nome atual do livro: <span th:text="${livro.nome}"></span>
-    	<br>
-    	Novo nome do livro:
-    	<input type="text" name="nome" value="">
-    	<br><br>
-    	
-    	Preço atual do livro: <span th:text="${livro.preco}"></span>
-    	<br>
-    	Novo preço do livro:
-    	<input type="text" name="preco" value="">
-    	<br><br>
-    	
-    	<button type="submit">Atualizar</button>
+    	<button type="submit" class="waves-effect waves-light btn">Atualizar</button>
     </form>
+	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>

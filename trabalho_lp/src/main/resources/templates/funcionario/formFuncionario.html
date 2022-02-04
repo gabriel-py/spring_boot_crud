@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" xmlns="http://www.w3.org/1999/html">
   <head>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+      <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Trabalho LP</title>
     <meta charset="utf-8">
   </head>
   <body>
-    <form method="post">
-    
-    	Nome do funcionário:
-    	<input type="text" name="nome">
-    	<br><br>
+    <form method="post" class="container">
+
+        <div class="row">
+            <div class="input-field col s9">
+            	Nome do funcionário:
+                <br>
+    	        <input type="text" name="nome">
+            </div>
+            <div class="input-field col s3">
+                Data de nascimento do funcionário:
+                <br>
+    	        <input type="text" name="dataNasc">
+            </div>
+        </div>
     	
-    	Data de nascimento do funcionário:
-    	<input type="text" name="dataNasc">
-    	<br><br>
-    	
-    	<button type="submit">Salvar</button>
+    	<button type="submit" class="waves-effect waves-light btn">Salvar</button>
     </form>
+    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
   </body>
 </html>
